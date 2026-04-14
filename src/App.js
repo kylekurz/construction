@@ -1,53 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { makeStyles } from '@material-ui/core/styles';
-
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import Typography from '@material-ui/core/Typography';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    padding: theme.spacing(2),
-  },
-  grid: {
-    display: 'flex',
-    padding: theme.spacing(2),
-  },
-  paper: {
-    padding: theme.spacing(2),
-    color: theme.palette.text.secondary,
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  control: {
-    padding: theme.spacing(2),
-  },
-  cardHeader: {
-    backgroundColor: theme.palette.grey[200],
-  },
-}));
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import Typography from '@mui/material/Typography';
 
 function App() {
-  const classes = useStyles();
   return (
     <div className="App">
       <header className="App-header">
-        <Card className={classes.paper} raised>
+        <Card
+          raised
+          sx={{
+            p: 2,
+            color: 'text.secondary',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
           <CardHeader
-            title='Under Construction'
-            titleTypographyProps={{ align: 'center' }}
-            subheaderTypographyProps={{ align: 'center' }}
-            className={classes.cardHeader}
-            />
+            title="Under Construction"
+            slotProps={{
+              title: { align: 'center' },
+            }}
+            sx={{ bgcolor: 'grey.200' }}
+          />
           <CardContent>
-              <Typography variant="subtitle1" align="center">
+            <Typography variant="subtitle1" align="center">
               This site is currently under construction. Please check back soon.
-              </Typography>
+            </Typography>
           </CardContent>
         </Card>
       </header>
